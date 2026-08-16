@@ -1,0 +1,77 @@
+
+\documentclass[letterpaper,11pt]{article}
+
+% Choose bibliography style for formatting list of publications
+\usepackage[style=ieee,url=false,doi=false,maxbibnames=99,sorting=none,dashed=false]{biblatex}
+\bibliography{papers}
+
+\NewBibliographyString{toappear}
+\DefineBibliographyStrings{english}{%
+  toappear = {to appear},
+}
+
+\renewbibmacro*{in:}{%
+  \iffieldundef{pubstate}
+    {}
+    {\printfield{pubstate}%
+     \setunit{\addspace}%
+     \clearfield{pubstate}}%
+  \printtext{%
+    \bibstring{in}\intitlepunct}
+}
+    
+% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue
+\def\theme{MidnightBlue}
+
+% More predefined colors can be found in 
+% https://en.wikibooks.org/wiki/LaTeX/Colors
+% Example photograph taken from Wikimedia Commons
+% https://commons.wikimedia.org/wiki/File:Kiara_Krit_passport.jpg
+
+\usepackage{simplecv}
+\usepackage{hyperref}
+
+\boldname{Porrello}{Angelo}{N.}
+
+\begin{document}
+
+% Heading
+\headingphoto{Angelo Porrello}{
+    \textbf{Email}: \email{angelo.porrello@unimore.it} \\
+    \textbf{Mobile}: (+39) 3924310188 \\
+    \textbf{Birth date}: 1st of September 1992 \\
+    \textbf{Birth place}: Modena, Italy \\
+    \textbf{GitHub}: \github{angpo}
+}{foto.jpg}
+
+\vspace{1.2em}
+%
+\begin{minipage}[t]{0.67\textwidth}
+\import{sections_eng/}{summary.tex}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.28\textwidth}
+\import{sections_eng/}{skills.tex}
+\end{minipage}
+
+% Page One
+\import{sections_eng/}{education.tex}
+\import{sections_eng/}{experience.tex}
+\import{sections_eng/}{projects.tex}
+\import{sections_eng/}{teaching.tex}
+
+\import{sections_eng/}{advisoring.tex}
+\import{sections_eng/}{reviewer.tex}
+\import{sections_eng/}{school.tex}
+
+\begin{minipage}[t]{0.65\textwidth}
+\import{sections_eng/}{activities.tex}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\import{sections_eng/}{languages.tex}
+\end{minipage}
+
+\import{sections_eng/}{publications.tex}
+
+I give consent to process my data with the purpose of the recruitment process, in accordance to the Regulation of the European Parliament 679/2016, regarding the protection of natural persons and free movement of such data.
+
+\end{document}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Personal website di Angelo Porrello." />
+    <title>Home - Angelo Porrello</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#terminal" aria-label="Torna al terminale">AP<span>_</span></a>
+      <nav class="header-menu" aria-label="Comandi rapidi"><button data-command="about">about</button><button data-command="research">research</button><button data-command="publications">publications</button><button data-command="teaching">teaching</button><button data-command="thesis">thesis</button><button data-command="news">news</button><button data-command="contact">contact</button></nav>
+      <div class="header-tools"><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">night</button><div class="clock" id="clock" aria-label="Ora locale"></div></div>
+    </header>
+    <main>
+      <section class="hero" id="terminal" aria-labelledby="page-title">
+        <div class="intro">
+          <figure class="profile-photo"><img src="Curriculum_Vitae__CV_/foto.jpg" alt="Ritratto di Angelo Porrello" /></figure>
+          <h1 id="page-title">Angelo<br /><em>Porrello.</em></h1>
+          <div class="title-rule" aria-hidden="true"></div>
+          <div class="intro-copy">
+            <p><strong>Angelo Porrello</strong> is a <strong>Tenure-Track Assistant Professor (RTT)</strong> at the <strong>University of Modena and Reggio Emilia</strong>, Italy, where he is part of the <a href="https://aimagelab.unimore.it" target="_blank" rel="noopener"><strong>AImageLab</strong></a> group, working in <strong>Artificial Intelligence</strong> and Computer Vision.</p>
+            <p>He earned his Master’s degree in Computer Engineering from the Department of Engineering “Enzo Ferrari”. He completed his <strong>Ph.D. in Deep Learning and Computer Vision</strong> at the same university.</p>
+            <p>His work focuses on <strong>efficient and decentralized learning</strong>, with particular emphasis on <strong>continual learning</strong>, <strong>federated learning</strong>, and techniques for <strong>modular deep learning</strong>.</p>
+          </div>
+          <nav class="profile-links" aria-label="Academic profiles"><div class="profile-links-row"><a href="cv_porrello.pdf" target="_blank" rel="noopener"><span class="link-icon" aria-hidden="true">↓</span><span>Download CV</span></a><a href="mailto:angelo.porrello@unimore.it"><span class="link-icon" aria-hidden="true">@</span><span>Email</span></a></div><div class="profile-links-row"><a href="https://scholar.google.com/citations?view_op=search_authors&mauthors=Angelo+Porrello+UNIMORE" target="_blank" rel="noopener"><span class="link-icon" aria-hidden="true">G</span><span>Google Scholar</span><span aria-hidden="true">↗</span></a><a href="https://unimore.unifind.cineca.it/get/person/096711" target="_blank" rel="noopener"><span class="link-icon" aria-hidden="true">U</span><span>Academic profile</span><span aria-hidden="true">↗</span></a><span class="profile-location"><span aria-hidden="true"></span>Modena, Italy</span></div></nav>
+        </div>
+        <div class="terminal-window" aria-label="Terminale interattivo">
+          <div class="window-bar"><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div><span>guest@angelo:~</span><span class="window-status">type help</span></div>
+          <div class="terminal-tabs" id="terminal-tabs" role="tablist" aria-label="Terminal tabs"></div>
+          <div class="terminal-body" id="terminal-body" role="log" aria-live="polite">
+            <div class="terminal-output" id="terminal-output"></div>
+            <form class="terminal-form" id="terminal-form"><input id="terminal-input" name="command" placeholder="Type a command…" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus /></form><div class="terminal-prompt"><label for="terminal-input"><span class="prompt">guest@angelo:~$</span><span class="sr-only">Inserisci un comando</span></label></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="publications-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
