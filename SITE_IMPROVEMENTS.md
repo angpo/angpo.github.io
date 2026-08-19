@@ -8,11 +8,11 @@ This document keeps track of the improvements identified during the website revi
 
 The global introduction now leads with model plurality and presents the three main research areas in a concise, first-person narrative.
 
-## Next steps
-
 ### 2. Improve the terminal's initial content
 
-Open with a compact research snapshot instead of showing only the command list, while keeping the terminal interaction and available commands.
+The terminal now opens with a compact snapshot of the current research focus, recent work, and suggested commands instead of showing only the command list.
+
+## Next steps
 
 ### 3. Make primary content directly accessible
 
