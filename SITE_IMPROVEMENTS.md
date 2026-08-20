@@ -20,6 +20,10 @@ The main sections now have shareable hash URLs. Direct loading, menu navigation,
 
 News and publications now have a single source of truth. Profile, news, teaching, theses, editorial content, terminal behavior, commands, and publication rendering have been separated into focused JavaScript files under a shared namespace.
 
+### 10. Clean up the stylesheet
+
+Repeated and overridden base styles have been consolidated into one readable definition per component and breakpoint, without changing the effective layout or visual treatment.
+
 ## Next steps
 
 ### 5. Strengthen the visual hierarchy of the research identity
@@ -40,10 +44,6 @@ Give more prominence to Research and Publications. Treat About, Teaching, Thesis
 ### 8. Review news ordering
 
 Ensure news items are ordered consistently and distinguish upcoming events from past events where useful.
-
-### 10. Clean up the stylesheet
-
-Consolidate repeated and overridden CSS rules, particularly the successive hero grid and header definitions, before making broader layout changes.
 
 ## Not planned
 
