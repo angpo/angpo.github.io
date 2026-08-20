@@ -12,6 +12,10 @@ The global introduction now leads with model plurality and presents the three ma
 
 The terminal now opens with a compact snapshot of the current research focus, recent work, and suggested commands instead of showing only the command list.
 
+### 9. Consolidate content sources
+
+News and publications now have a single source of truth. Profile, news, teaching, theses, editorial content, terminal behavior, commands, and publication rendering have been separated into focused JavaScript files under a shared namespace.
+
 ## Next steps
 
 ### 3. Make primary content directly accessible
@@ -47,10 +51,6 @@ Give more prominence to Research and Publications. Treat About, Teaching, Thesis
 ### 8. Review news ordering
 
 Ensure news items are ordered consistently and distinguish upcoming events from past events where useful.
-
-### 9. Consolidate content sources
-
-Avoid defining the same news and teaching content in multiple places. Establish one source of truth for each content type.
 
 ### 10. Clean up the stylesheet
 
