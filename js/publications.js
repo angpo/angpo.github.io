@@ -3,14 +3,10 @@ const { escapeHtml, externalPaperLinks } = window.AngeloSite;
 
 let publicationDatabase = null;
 
-async function getPublicationDatabase() {
+function getPublicationDatabase() {
   if (publicationDatabase) return publicationDatabase;
-
-  const response = await fetch("publications.json");
-  if (!response.ok) throw new Error("Unable to load publications.json");
-
-  publicationDatabase = await response.json();
-  if (!publicationDatabase.length) throw new Error("Empty publications database");
+  if (!window.PUBLICATIONS_DATABASE?.length) throw new Error("Empty publications database");
+  publicationDatabase = window.PUBLICATIONS_DATABASE;
   return publicationDatabase;
 }
 

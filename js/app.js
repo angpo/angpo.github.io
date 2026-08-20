@@ -14,6 +14,8 @@ const tabs = new Map([
 ]);
 const MAX_TABS = 2;
 const firstTab = "help";
+const routeAliases = { home: firstTab, terminal: firstTab, pubs: "publications" };
+const routedCommands = new Set([firstTab, "about", "research", "publications", "teaching", "thesis", "news", "contact"]);
 let activeTab = firstTab;
 
 function line(text = "", className = "") {
@@ -37,6 +39,37 @@ function saveTab() {
   if (tab) tab.html = output.innerHTML;
 }
 
+function routeForTab(key) {
+  return key === firstTab ? "home" : key;
+}
+
+function commandFromHash() {
+  let route;
+  try {
+    route = decodeURIComponent(window.location.hash.slice(1)).toLowerCase();
+  } catch (error) {
+    return null;
+  }
+  const command = routeAliases[route] || route;
+  return routedCommands.has(command) ? command : null;
+}
+
+function updateHeaderState(key) {
+  document.querySelectorAll(".header-menu [data-command]").forEach((link) => {
+    if (link.dataset.command === key) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+function navigateToTab(key) {
+  const hash = `#${routeForTab(key)}`;
+  if (window.location.hash === hash) {
+    syncRoute();
+  } else {
+    window.location.hash = hash;
+  }
+}
+
 function renderTabs() {
   tabsElement.innerHTML = "";
 
@@ -52,7 +85,7 @@ function renderTabs() {
         event.stopPropagation();
         closeTab(key);
       } else {
-        activateTab(key);
+        navigateToTab(key);
       }
     });
     tabsElement.appendChild(button);
@@ -99,6 +132,7 @@ function activateTab(key) {
   }
 
   renderTabs();
+  updateHeaderState(key);
   const resetPosition = () => focusTerminalTop();
   requestAnimationFrame(resetPosition);
   setTimeout(resetPosition, 80);
@@ -143,7 +177,21 @@ function closeTab(key) {
 
   output.innerHTML = tabs.get(activeTab).html;
   renderTabs();
+  updateHeaderState(activeTab);
+  window.history.replaceState(null, "", `#${routeForTab(activeTab)}`);
   input.focus();
+}
+
+function syncRoute() {
+  const command = commandFromHash();
+  if (!command) {
+    window.history.replaceState(null, "", "#home");
+    activateTab(firstTab);
+    return;
+  }
+
+  if (command === firstTab) activateTab(firstTab);
+  else openTab(command);
 }
 
 function run(raw) {
@@ -198,16 +246,19 @@ form.addEventListener("submit", (event) => {
   setTimeout(focusCommandOutput, 500);
 });
 
-document.querySelectorAll("[data-command]").forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.dataset.command === "clear") {
+document.querySelectorAll(".header-menu [data-command]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (link.dataset.command === "clear") {
       commands.clear();
       input.focus();
     } else {
-      openTab(button.dataset.command);
+      navigateToTab(link.dataset.command);
     }
   });
 });
+
+window.addEventListener("hashchange", syncRoute);
 
 themeToggle.addEventListener("click", () => {
   const night = document.body.classList.toggle("night");
@@ -226,5 +277,7 @@ setInterval(() => {
 initializeTheme();
 welcome();
 renderTabs();
+if (window.location.hash) syncRoute();
+else updateHeaderState(firstTab);
 
 })();

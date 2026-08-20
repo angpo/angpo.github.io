@@ -190,7 +190,7 @@ function createCommands({ line, output }) {
       output.appendChild(list);
     },
 
-    async publications(args) {
+    publications(args) {
       if (args.includes("--help")) {
         line("Usage: publications [options]", "section-title");
         line("  --conference              show conference publications (default)", "dim");
@@ -202,7 +202,7 @@ function createCommands({ line, output }) {
       }
 
       try {
-        let items = await getPublicationDatabase();
+        let items = getPublicationDatabase();
         const optionValue = (name) => {
           const option = args.find((argument) => argument === name || argument.startsWith(`${name}=`));
           if (!option) return "";

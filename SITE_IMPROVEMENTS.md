@@ -12,26 +12,15 @@ The global introduction now leads with model plurality and presents the three ma
 
 The terminal now opens with a compact snapshot of the current research focus, recent work, and suggested commands instead of showing only the command list.
 
+### 3. Make primary content directly accessible
+
+The main sections now have shareable hash URLs. Direct loading, menu navigation, browser history, tab navigation, and invalid routes are synchronized with the terminal interface.
+
 ### 9. Consolidate content sources
 
 News and publications now have a single source of truth. Profile, news, teaching, theses, editorial content, terminal behavior, commands, and publication rendering have been separated into focused JavaScript files under a shared namespace.
 
 ## Next steps
-
-### 3. Make primary content directly accessible
-
-Keep the terminal as a distinctive interaction layer, but provide real anchors or URLs for research, publications, and other important sections to improve scanning, sharing, and indexing.
-
-### 4. Restructure the research section
-
-Break the long research narrative into four recognizable areas:
-
-- Continual learning
-- Modular deep learning
-- Efficient adaptation and curvature
-- Computer Vision applications
-
-For each area, use a short problem statement, a concise description of the contribution, and one or two representative works.
 
 ### 5. Strengthen the visual hierarchy of the research identity
 
@@ -55,6 +44,12 @@ Ensure news items are ordered consistently and distinguish upcoming events from 
 ### 10. Clean up the stylesheet
 
 Consolidate repeated and overridden CSS rules, particularly the successive hero grid and header definitions, before making broader layout changes.
+
+## Not planned
+
+### 4. Restructure the research section
+
+The proposed thematic restructuring was declined. The current narrative, ordering, and content of the Research section will remain unchanged.
 
 ## Guiding principle
 
