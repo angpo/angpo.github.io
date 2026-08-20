@@ -24,6 +24,10 @@ News and publications now have a single source of truth. Profile, news, teaching
 
 Repeated and overridden base styles have been consolidated into one readable definition per component and breakpoint, without changing the effective layout or visual treatment.
 
+### 7. Improve language and metadata consistency
+
+The document language is now English, and the page title and meta description foreground Angelo's research on model plurality and modular deep learning.
+
 ## Next steps
 
 ### 5. Strengthen the visual hierarchy of the research identity
@@ -33,13 +37,6 @@ Give the research statement more visual prominence, slightly increase the introd
 ### 6. Simplify the navigation hierarchy
 
 Give more prominence to Research and Publications. Treat About, Teaching, Thesis, News, and Contact as secondary destinations, especially on mobile.
-
-### 7. Improve language and metadata consistency
-
-- Change the document language from Italian to English.
-- Replace the generic page title with a research-oriented title.
-- Write a more informative meta description.
-- Keep terminology and narrative voice consistent across the website.
 
 ### 8. Review news ordering
 
