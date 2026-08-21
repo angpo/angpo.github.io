@@ -207,6 +207,12 @@ h1 em {
   gap: 10px 18px;
 }
 
+.cv-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .profile-links a,
 .profile-location {
   display: inline-flex;
@@ -223,6 +229,18 @@ h1 em {
 }
 
 .profile-links a:hover {
+  color: var(--accent);
+}
+
+.profile-links .profile-link-minor {
+  color: var(--muted);
+  font-size: 10px;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+.profile-links .profile-link-minor:hover {
   color: var(--accent);
 }
 
