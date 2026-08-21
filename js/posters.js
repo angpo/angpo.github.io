@@ -12,6 +12,7 @@ const conferences = {
   icpr: "International Conference on Pattern Recognition",
   miccai: "International Conference on Medical Image Computing and Computer-Assisted Intervention",
   neurips: "Conference on Neural Information Processing Systems",
+  wacv: "IEEE/CVF Winter Conference on Applications of Computer Vision",
 };
 
 const posterFiles = [
@@ -20,12 +21,17 @@ const posterFiles = [
   ["gradfix", "iclr", 2026, 1400, 663],
   ["tak", "iclr", 2026, 1400, 663],
   ["core", "neurips", 2025, 1400, 696],
-  ["corsini", "neurips", 2025, 1400, 715],
+  ["dithub", "neurips", 2025, 1400, 700],
+  ["transplant", "miccai", 2025, 1400, 1980],
   ["transfusion", "icml", 2025, 1400, 838],
   ["second", "iclr", 2025, 1400, 692],
+  ["continualbias", "wacv", 2025, 1400, 699],
+  ["pasta", "neurips", 2024, 1400, 700],
+  ["corsini", "neurips", 2024, 1400, 715],
   ["starprompt", "eccv", 2024, 1400, 700],
   ["cgil", "bmvc", 2024, 1400, 1979],
   ["maythe", "bmvc", 2024, 1400, 1979],
+  ["clusterix", "wacv", 2024, 1400, 1400],
   ["trackflow", "iccv", 2023, 1400, 816],
   ["dasmil", "miccai", 2023, 1400, 1951],
   ["traj", "cvpr", 2022, 1400, 700],

@@ -14,7 +14,7 @@ Il sito usa script JavaScript modulari, isolati sotto un unico namespace, e non 
 - `js/posters.js` contiene il catalogo dei poster e i relativi metadati;
 - `js/publications.js` visualizza il database bibliografico;
 - `publications-data.js` è la fonte dati delle pubblicazioni;
-- `assets/posters/` contiene le anteprime JPEG ottimizzate, mentre `posters/` conserva i PDF originali;
+- `assets/posters/` contiene le anteprime JPEG ottimizzate, mentre `posters/` conserva i PDF alleggeriti per il web (massimo 5 MB ciascuno);
 - `styles.css` contiene layout e interfaccia, mentre `css/components.css` raccoglie gli stili delle sezioni di contenuto.
 
 L'intero sito può essere aperto direttamente tramite `file://` oppure servito con un server HTTP statico.
