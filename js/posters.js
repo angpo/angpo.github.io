@@ -33,6 +33,7 @@ const posterFiles = [
   ["lipschitz", "neurips", 2022, 1400, 700],
   ["bagof", "icpr", 2020, 1400, 990],
   ["der", "neurips", 2020, 1400, 1979],
+  ["lsa", "cvpr", 2019, 1400, 685],
   ["grafi", "aistats", 2019, 1400, 1979],
 ];
 
