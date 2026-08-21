@@ -11,8 +11,10 @@ Il sito usa script JavaScript modulari, isolati sotto un unico namespace, e non 
 - `js/content.js` contiene i testi estesi e i diagrammi;
 - `js/data.js` contiene profilo, teaching, tesi e link delle pubblicazioni;
 - `js/news.js` contiene le news;
+- `js/posters.js` contiene il catalogo dei poster e i relativi metadati;
 - `js/publications.js` visualizza il database bibliografico;
-- `js/news.js` e `publications-data.js` sono le fonti dati per news e pubblicazioni;
+- `publications-data.js` è la fonte dati delle pubblicazioni;
+- `assets/posters/` contiene le anteprime JPEG ottimizzate, mentre `posters/` conserva i PDF originali;
 - `styles.css` contiene layout e interfaccia, mentre `css/components.css` raccoglie gli stili delle sezioni di contenuto.
 
 L'intero sito può essere aperto direttamente tramite `file://` oppure servito con un server HTTP statico.

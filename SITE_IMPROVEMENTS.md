@@ -28,6 +28,10 @@ Repeated and overridden base styles have been consolidated into one readable def
 
 The document language is now English, and the page title and meta description foreground Angelo's research on model plurality and modular deep learning.
 
+### 11. Add a poster gallery
+
+Posters are now available through a visual-first gallery with lightweight, lazy-loaded previews. Each preview links to the original PDF and works both on GitHub Pages and from the local filesystem.
+
 ## Next steps
 
 ### 5. Strengthen the visual hierarchy of the research identity

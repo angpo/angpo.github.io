@@ -3,6 +3,7 @@ const {
   aboutHtml,
   getPublicationDatabase,
   news,
+  posters: posterItems,
   renderPublicationCards,
   researchDiagrams,
   researchHtml,
@@ -79,6 +80,54 @@ function renderNewsCards(items, output) {
   output.appendChild(cards);
 }
 
+function renderPosterGallery(items, output) {
+  const gallery = document.createElement("div");
+  gallery.className = "poster-gallery";
+
+  items.forEach((poster) => {
+    const card = document.createElement("figure");
+    card.className = "poster-card";
+    card.innerHTML = `
+      <a class="poster-preview" href="${poster.pdf}" target="_blank" rel="noopener" aria-label="Open ${poster.acronym} ${poster.year} poster as PDF">
+        <img src="${poster.preview}" width="${poster.width}" height="${poster.height}" alt="${poster.id} poster at ${poster.acronym} ${poster.year}" loading="lazy" decoding="async">
+      </a>
+      <figcaption><span>${poster.conference}</span> <small>(${poster.acronym} ${poster.year})</small></figcaption>`;
+    gallery.appendChild(card);
+  });
+
+  output.appendChild(gallery);
+
+  const cards = [...gallery.querySelectorAll(".poster-card")];
+  const layout = () => {
+    const styles = window.getComputedStyle(gallery);
+    const columnGap = Number.parseFloat(styles.getPropertyValue("--poster-column-gap")) || 24;
+    const rowGap = Number.parseFloat(styles.getPropertyValue("--poster-row-gap")) || 30;
+    const minimumWidth = Number.parseFloat(styles.getPropertyValue("--poster-min-width")) || 280;
+    const availableWidth = gallery.clientWidth;
+    if (!availableWidth) return;
+
+    const columnCount = window.matchMedia("(max-width:760px)").matches
+      ? 1
+      : Math.max(1, Math.floor((availableWidth + columnGap) / (minimumWidth + columnGap)));
+    const columnWidth = (availableWidth - columnGap * (columnCount - 1)) / columnCount;
+    const columnHeights = Array(columnCount).fill(0);
+
+    cards.forEach((card, index) => {
+      const column = index % columnCount;
+      card.style.width = `${columnWidth}px`;
+      card.style.transform = `translate(${column * (columnWidth + columnGap)}px, ${columnHeights[column]}px)`;
+      columnHeights[column] += card.getBoundingClientRect().height + rowGap;
+    });
+
+    gallery.style.height = `${Math.max(...columnHeights) - rowGap}px`;
+  };
+
+  requestAnimationFrame(layout);
+  if ("ResizeObserver" in window) new ResizeObserver(layout).observe(gallery);
+  gallery.querySelectorAll("img").forEach((image) => image.addEventListener("load", layout, { once: true }));
+  document.fonts?.ready.then(layout);
+}
+
 function createCommands({ line, output }) {
   return {
     help() {
@@ -86,7 +135,7 @@ function createCommands({ line, output }) {
       line("Available commands:", "section-title");
 
       if (compact) {
-        ["about", "research", "publications", "teaching", "thesis", "news", "contact", "clear"]
+        ["about", "research", "publications", "posters", "teaching", "thesis", "news", "contact", "clear"]
           .forEach((command) => line(`  ${command}`, "dim"));
         return;
       }
@@ -94,6 +143,7 @@ function createCommands({ line, output }) {
       line("  about                        who I am", "dim");
       line("  research                     research interests and work", "dim");
       line("  publications                conferences (default)", "dim");
+      line("  posters                     poster gallery", "dim");
       line("  teaching                     teaching activities", "dim");
       line("  thesis                       supervised theses", "dim");
       line("  news                         recent updates", "dim");
@@ -148,6 +198,10 @@ function createCommands({ line, output }) {
 
     news() {
       renderNewsCards(news, output);
+    },
+
+    posters() {
+      renderPosterGallery(posterItems, output);
     },
 
     teaching() {

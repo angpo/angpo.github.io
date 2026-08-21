@@ -15,7 +15,7 @@ const tabs = new Map([
 const MAX_TABS = 2;
 const firstTab = "help";
 const routeAliases = { home: firstTab, terminal: firstTab, pubs: "publications" };
-const routedCommands = new Set([firstTab, "about", "research", "publications", "teaching", "thesis", "news", "contact"]);
+const routedCommands = new Set([firstTab, "about", "research", "publications", "posters", "teaching", "thesis", "news", "contact"]);
 let activeTab = firstTab;
 
 function line(text = "", className = "") {
@@ -123,7 +123,7 @@ function activateTab(key) {
   activeTab = key;
   const tab = tabs.get(key);
   const firstOpen = !tab.initialized;
-  const refresh = key === "news";
+  const refresh = key === "news" || key === "posters";
   output.innerHTML = refresh ? "" : tab.html;
 
   if (firstOpen || refresh) {
@@ -156,9 +156,11 @@ function openTab(command) {
 
   const label = command === "publications"
     ? "publications.log"
-    : command === "news"
-      ? "news.log"
-      : `${command}.md`;
+    : command === "posters"
+      ? "posters.gallery"
+      : command === "news"
+        ? "news.log"
+        : `${command}.md`;
   tabs.set(command, { label, command, html: "", initialized: false });
   activateTab(command);
 }
@@ -224,8 +226,8 @@ function welcome() {
   line("  ICLR 2026 · 2 papers", "dim");
   line("  AVSS 2026 · oral presentation", "dim");
   line("AVAILABLE COMMANDS", "section-title");
-  line("  about · research · publications · teaching", "dim");
-  line("  thesis · news · contact · help · clear", "dim");
+  line("  about · research · publications · posters", "dim");
+  line("  teaching · thesis · news · contact · help · clear", "dim");
 }
 
 function initializeTheme() {
