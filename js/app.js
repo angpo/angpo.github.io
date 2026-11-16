@@ -222,6 +222,7 @@ function welcome() {
   line("  ├─ training for model compositionality", "dim");
   line("  └─ continual & federated learning", "dim");
   line("RECENT WORK", "section-title");
+  line("  NeurIPS 2026 · 1 paper", "dim");
   line("  ICML 2026 · 2 papers", "dim");
   line("  ICLR 2026 · 2 papers", "dim");
   line("  AVSS 2026 · oral presentation", "dim");

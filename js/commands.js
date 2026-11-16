@@ -64,7 +64,7 @@ function renderNewsCards(items, output) {
       ? `<div class="news-media"><img src="${item.image}" alt="" loading="lazy">${item.logo ? `<img class="news-logo" src="${item.logo}" alt="">` : ""}</div>`
       : "";
     const papers = item.papers?.length
-      ? `<ul class="news-papers">${item.papers.map((paper) => `<li><strong>${paper.link ? `<a href="${paper.link}" target="_blank" rel="noopener">${paper.title} ↗</a>` : paper.title}</strong><small>${paper.authors}</small></li>`).join("")}</ul>`
+      ? `<ul class="news-papers">${item.papers.map((paper) => `<li><strong>${paper.link ? `<a href="${paper.link}" target="_blank" rel="noopener">${paper.title} ↗</a>` : paper.title}</strong><small>${paper.authors}</small>${paper.code ? `<small><a href="${paper.code}" target="_blank" rel="noopener">code ↗</a></small>` : ""}</li>`).join("")}</ul>`
       : "";
     const title = item.link
       ? `<a href="${item.link}" target="_blank" rel="noopener">${item.title} ↗</a>`

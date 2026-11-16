@@ -1,6 +1,22 @@
 (() => {
 const news = [
   {
+    date: "Dec 2026",
+    type: "NeurIPS · Paris",
+    title: "NeurIPS 2026 — Paper accepted",
+    text: "Our paper on layer-wise model merging has been accepted at NeurIPS 2026. We will present it in Paris in December.",
+    image: "assets/news/model-merging.svg",
+    logo: "assets/news/aimagelab-mark.svg",
+    papers: [
+      {
+        title: "Rethinking Layer-wise Model Merging through Chain of Merges",
+        authors: "P Buzzega, R Salami, A Porrello, S Calderara",
+        link: "https://arxiv.org/abs/2508.21421",
+        code: "https://github.com/aimagelab/chain-of-merges",
+      },
+    ],
+  },
+  {
     date: "Sep 2026",
     type: "award · ECCV 2026",
     title: "ECCV 2026 — Outstanding Reviewer",
