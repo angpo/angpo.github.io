@@ -5,7 +5,8 @@ const news = [
     type: "NeurIPS · Paris",
     title: "NeurIPS 2026 — Paper accepted",
     text: "Our paper on layer-wise model merging has been accepted at NeurIPS 2026. We will present it in Paris in December.",
-    image: "assets/news/model-merging.svg",
+    image: "assets/news/chain-of-merges.png",
+    imageFit: "contain",
     logo: "assets/news/aimagelab-mark.svg",
     papers: [
       {
