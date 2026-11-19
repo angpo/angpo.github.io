@@ -18,6 +18,15 @@ const news = [
     ],
   },
   {
+    date: "Nov 24, 2026",
+    type: "talk · ML Modena",
+    title: "ML Modena — Talk on Task Arithmetic",
+    text: "I will give a talk at ML Modena on 24 November 2026: “AI su misura: Personalizzazione e Alignment con la Task Arithmetic”. I will show how task arithmetic represents learned adaptations as vectors in parameter space and combines them without retraining. I will also discuss when these operations work, why separately learned preferences can interfere, and current research on making model composition more reliable.",
+    image: "assets/news/mlmodena.png",
+    imageFit: "contain",
+    link: "https://mlmodena.it/eventi/2026-11-24-task-arithmetic/",
+  },
+  {
     date: "Sep 2026",
     type: "award · ECCV 2026",
     title: "ECCV 2026 — Outstanding Reviewer",
