@@ -47,6 +47,7 @@ const theses = [
 ];
 
 const externalPaperLinks = {
+  bernardi2027abra: "https://doi.org/10.1016/j.patrec.2026.11.020",
   porrello2026dataless: "https://arxiv.org/abs/2602.17385",
   buzzega2025rethinking: "https://arxiv.org/abs/2508.21421",
   panariello2025accurate: "https://arxiv.org/abs/2509.17786",

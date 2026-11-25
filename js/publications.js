@@ -102,7 +102,7 @@ function renderPublicationCards(items, output) {
 
       const query = encodeURIComponent(item.title);
       const externalUrl = externalPaperLinks[item.key] || `https://iris.unimore.it/simple-search?query=${query}`;
-      const externalLabel = externalPaperLinks[item.key] ? "arXiv" : "IRIS";
+      const externalLabel = !externalPaperLinks[item.key] ? "IRIS" : externalUrl.includes("arxiv.org") ? "arXiv" : externalUrl.includes("doi.org") ? "DOI" : "paper";
 
       card.innerHTML = `<div class="publication-meta"><span>${formatVenue(item.venue)}</span><span class="publication-actions"><a href="${externalUrl}" target="_blank" rel="noopener" aria-label="Apri ${externalLabel}">${externalLabel} ↗</a><button type="button" aria-label="Copia BibTeX">bib</button></span></div><h4>${item.title}</h4><p>${formatAuthors(item.authors)}</p>`;
       card.querySelector("button").addEventListener("click", (event) => copyBibtex(item, event.currentTarget));
